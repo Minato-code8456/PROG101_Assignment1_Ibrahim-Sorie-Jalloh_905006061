@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="programming"/>
+        <attribute name="authors" value="Mohamed"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-11 03:49:58 pm"/>
+        <attribute name="created" value="TW9oYW1lZDtNT0hBTUVEOzIwMjYtMTAtMTA7MDU6MDY6MzkgcG07MjU0OQ=="/>
+        <attribute name="edited" value="TW9oYW1lZDtNT0hBTUVEOzIwMjYtMTAtMTE7MDM6NDk6NTggcG07MjsyNjY1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="reportID, staffName, collectionDate, collectionTime, comments, reportStatus" type="String" array="False" size=""/>
+            <declare name="i, day, month, year, hour, minute" type="Integer" array="False" size=""/>
+            <declare name="available, validInput, validName" type="Boolean" array="False" size=""/>
+            <output expression="&quot;Enter report ID:&quot;" newline="True"/>
+            <input variable="reportID"/>
+            <assign variable="validName" expression="false"/>
+            <do expression="validName = false">
+                <output expression="&quot;Enter staff member name:&quot;" newline="True"/>
+                <input variable="staffName"/>
+                <assign variable="validName" expression="True"/>
+                <for variable="i" start="0" end="Len(staffName) - 1" direction="inc" step="1">
+                    <if expression="Char(staffName, i) &gt;= &quot;0&quot; and Char(staffName, i) &lt;= &quot;9&quot;">
+                        <then>
+                            <assign variable="validName" expression="false"/>
+                            <output expression="&quot;Invald name&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <if expression="Char(staffName, i) = &quot; &quot;">
+                        <then/>
+                        <else/>
+                    </if>
+                </for>
+            </do>
+            <output expression="&quot;Is the staff member available? Enter true or false:&quot;" newline="True"/>
+            <input variable="available"/>
+            <if expression="available = true">
+                <then>
+                    <output expression="&quot;Enter collection date:&quot;" newline="True"/>
+                    <input variable="collectionDate"/>
+                    <output expression="&quot;Enter collection time:&quot;" newline="True"/>
+                    <input variable="collectionTime"/>
+                    <output expression="&quot;Enter collection instructions:&quot;" newline="True"/>
+                    <input variable="comments"/>
+                    <assign variable="reportStatus" expression="&quot;Assigned&quot;"/>
+                    <output expression="&quot;Report successfully assigned!\Report ID: &quot; &amp; reportID &amp; &quot;\Assigned to: &quot; &amp; staffName" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Staff is unavailable. Choose another staff member.&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="programming.new"/>
+        <attribute name="authors" value="Mohamed"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-11 01:40:15 pm"/>
+        <attribute name="created" value="TW9oYW1lZDtNT0hBTUVEOzIwMjYtMTAtMTA7MDc6NDU6NDggcG07MjU1NA=="/>
+        <attribute name="edited" value="TW9oYW1lZDtNT0hBTUVEOzIwMjYtMTAtMTE7MDE6NDA6MTUgcG07MjsyNjQ3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="location, category, details, reportID, status, priority" type="String" array="False" size=""/>
+            <declare name="isValid, validLocation, validCategory, validPriority" type="Boolean" array="False" size=""/>
+            <assign variable="isValid" expression="false"/>
+            <while expression="not isValid">
+                <output expression="&quot;Welcome to Freetown Waste &amp; Flood alert portal&quot;" newline="True"/>
+                <output expression="&quot;Enter your location&quot;" newline="True"/>
+                <input variable="location"/>
+                <output expression="&quot;Enter your category&quot;" newline="True"/>
+                <input variable="category"/>
+                <output expression="&quot;Enter your priority level(High or Medium)&quot;" newline="True"/>
+                <input variable="priority"/>
+                <if expression="location !=&quot;&quot;and category !=&quot;&quot;and priority == &quot;High&quot; or priority == &quot;Medium&quot;">
+                    <then>
+                        <assign variable="validLocation" expression="location != &quot;&quot;"/>
+                        <assign variable="validCategory" expression="category != &quot;&quot;"/>
+                        <assign variable="validPriority" expression="priority == &quot;High&quot; or priority == &quot;Medium&quot;"/>
+                        <if expression="validLocation and validCategory and validPriority">
+                            <then>
+                                <assign variable="isValid" expression="true"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Error: Invalid fields or Priority!.&quot;" newline="True"/>
+                            </else>
+                        </if>
+                        <assign variable="reportID" expression="&quot;WR-101&quot;"/>
+                        <assign variable="priority" expression="&quot;High or Medium&quot;"/>
+                        <assign variable="status" expression="&quot;pending&quot;"/>
+                        <output expression="&quot;SUCCESS ID:&quot; &amp; reportID &amp;&#13;&#10;&quot; Report has been saved as &quot; &amp; status" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Error: Invalid Fields or Priority Please try again.&quot;" newline="True"/>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
